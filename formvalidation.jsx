@@ -29,9 +29,7 @@ class FormWithValidation extends React.Component {
         let childNodes = Array.prototype.slice.call(event.target.querySelectorAll('div'));
         const values = childNodes.map((div, index) => {
             const value = {id: index};
-            div.childNodes.forEach((input) => {
-                value[input.name] = input.value
-            })
+            div.querySelectorAll('input').forEach((input) => value[input.name] = input.value)
             return value;
         });
         this.setState({values: values});
